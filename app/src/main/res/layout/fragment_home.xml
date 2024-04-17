@@ -119,22 +119,9 @@
         android:paddingTop="50sp"
         android:paddingBottom="80sp">
 
-        <org.imaginativeworld.whynotimagecarousel.ImageCarousel
-            android:id="@+id/carousel"
-            app:autoPlay="true"
-            app:carouselBackground="@color/transparente"
-            app:showIndicator="false"
-            app:autoPlayDelay="@integer/material_motion_duration_medium_1"
-            app:showTopShadow="false"
-            app:showBottomShadow="false"
-            app:showNavigationButtons="false"
-            app:infiniteCarousel="true"
-            app:scaleOnScroll="true"
-            app:carouselGravity="CENTER"
-            app:carouselType="SHOWCASE"
+        <com.jackandphantom.carouselrecyclerview.CarouselRecyclerview
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-
+            android:layout_height="match_parent"/>
     </LinearLayout>
+
 </LinearLayout>
