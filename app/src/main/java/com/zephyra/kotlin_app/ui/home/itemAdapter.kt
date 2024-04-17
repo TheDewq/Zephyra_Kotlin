@@ -23,7 +23,8 @@ class itemAdapter(private var itemlista:List<itemsModel>): RecyclerView.Adapter<
     override fun onBindViewHolder(holder: itemViewHolder, position: Int) {
         val item = itemlista[position]
         holder.binding.apply {
-            itemFirstPhoto
+            Glide.with(itemFirstPhoto).load(itemlista[position].link).into(itemFirstPhoto)
+            carouselItemPrice.text = itemlista[position].precio.toString()
         }
 
     }

@@ -37,10 +37,10 @@
             android:layout_gravity="bottom"
             android:background="@drawable/bottom_start_ticket"
             android:fontFamily="@font/alata"
-            android:paddingTop="5sp"
+            android:paddingTop="3sp"
             android:text="TextView"
             android:textAlignment="center"
-            android:textSize="10dp"
+            android:textSize="14dp"
             android:textStyle="bold|italic"
             tools:ignore="TextSizeCheck" />
     </FrameLayout>

@@ -44,6 +44,14 @@ class HomeFragment : Fragment() {
         itemlista.add(itemsModel("https://www.geekmi.news/__export/1616108436990/sites/debate/img/2021/03/18/kirby_1_crop1616108354116.jpg_423682103.jpg", 999999))
         itemlista.add(itemsModel("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWD1hS9adWy-zSydolX3smyn4BsI0T3VH9itRISE4MLQ&s", 999999))
         itemlista.add(itemsModel("https://www.shutterstock.com/image-vector/cute-2d-game-character-kirby-260nw-2171308275.jpg", 999999))
+
+        val adapter = itemAdapter(itemlista)
+
+        binding.apply {
+            carousel.adapter = adapter
+            carousel.setInfinite(true)
+            carousel.setFlat(true)
+        }
         // end carousel function //
         print("funciona")
         btn.setOnClickListener(){

@@ -116,12 +116,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingTop="50sp"
-        android:paddingBottom="80sp">
+        android:paddingTop="0dp"
+        android:paddingBottom="0sp">
 
         <com.jackandphantom.carouselrecyclerview.CarouselRecyclerview
+            android:id="@+id/carousel"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
     </LinearLayout>
 
 </LinearLayout>
