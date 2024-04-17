@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:orientation="vertical"
+    android:paddingTop="1sp">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="180sp"
+        android:layout_height="180sp"
+        android:background="@drawable/radius_corners"
+        android:padding="10dp"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/win95" />
+
+    <FrameLayout
+        android:layout_width="180sp"
+        android:layout_height="180sp"
+        android:background="@drawable/radius_corners"
+        android:padding="10sp">
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="180sp"
+        android:layout_height="180sp"
+        android:padding="10sp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="73dp"
+            android:layout_height="27dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/bottom_start_ticket"
+            android:fontFamily="@font/alata"
+            android:paddingTop="5sp"
+            android:text="TextView"
+            android:textAlignment="center"
+            android:textSize="10dp"
+            android:textStyle="bold|italic"
+            tools:ignore="TextSizeCheck" />
+    </FrameLayout>
+</FrameLayout>

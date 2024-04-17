@@ -8,6 +8,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.zephyra.kotlin_app.databinding.ActivityMainBinding
+import org.imaginativeworld.whynotimagecarousel.ImageCarousel
 
 class MainActivity : AppCompatActivity() {
 
@@ -33,3 +34,4 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
     }
 }
+

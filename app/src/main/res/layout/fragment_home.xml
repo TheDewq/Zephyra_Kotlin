@@ -7,54 +7,134 @@
     android:orientation="vertical"
     tools:context=".ui.home.HomeFragment" >
 
-    <FrameLayout
+    <RelativeLayout
+        android:id="@+id/coordinatorLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="0.05">
+        android:padding="18sp">
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
             android:text="TITULO"
-            android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-    </FrameLayout>
+    </RelativeLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.35"
+        android:layout_height="290dp"
         android:padding="15sp">
 
 
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:background="@drawable/radius_corners"
-            android:clickable="false">
-
-
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                android:cropToPadding="false"
-                tools:src="@tools:sample/backgrounds/scenic" />
-        </FrameLayout>
+            android:clickable="false" />
     </FrameLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.10"
-        android:orientation="horizontal"></LinearLayout>
+        android:accessibilityHeading="false"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_section"
+            android:layout_width="90sp"
+            android:layout_height="70dp"
+            android:layout_marginStart="15sp"
+            android:layout_marginTop="5sp"
+            android:layout_marginEnd="4sp"
+            android:layout_marginBottom="5sp"
+            android:layout_weight="1"
+            android:background="@drawable/custom_section_button"
+            android:backgroundTint="#E91E63"
+            android:text="x"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="90sp"
+            android:layout_height="70dp"
+            android:layout_marginStart="4sp"
+            android:layout_marginTop="5sp"
+            android:layout_marginEnd="4sp"
+            android:layout_marginBottom="5sp"
+            android:layout_weight="1"
+            android:background="@drawable/custom_section_button"
+            android:backgroundTint="#E91E63"
+            android:text="x"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="90sp"
+            android:layout_height="70dp"
+            android:layout_marginStart="4sp"
+            android:layout_marginTop="5sp"
+            android:layout_marginEnd="4sp"
+            android:layout_marginBottom="5sp"
+            android:layout_weight="1"
+            android:background="@drawable/custom_section_button"
+            android:backgroundTint="#E91E63"
+            android:text="x"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="90sp"
+            android:layout_height="70dp"
+            android:layout_marginStart="4sp"
+            android:layout_marginTop="5sp"
+            android:layout_marginEnd="4sp"
+            android:layout_marginBottom="5sp"
+            android:layout_weight="1"
+            android:background="@drawable/custom_section_button"
+            android:backgroundTint="#E91E63"
+            android:text="x"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="90sp"
+            android:layout_height="70dp"
+            android:layout_marginStart="4sp"
+            android:layout_marginTop="5sp"
+            android:layout_marginEnd="15sp"
+            android:layout_marginBottom="5sp"
+            android:layout_weight="1"
+            android:background="@drawable/custom_section_button"
+            android:text="x"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:backgroundTint="#E91E63" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.25"
-        android:orientation="vertical"></LinearLayout>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="50sp"
+        android:paddingBottom="80sp">
+
+        <org.imaginativeworld.whynotimagecarousel.ImageCarousel
+            android:id="@+id/carousel"
+            app:autoPlay="true"
+            app:carouselBackground="@color/transparente"
+            app:showIndicator="false"
+            app:autoPlayDelay="@integer/material_motion_duration_medium_1"
+            app:showTopShadow="false"
+            app:showBottomShadow="false"
+            app:showNavigationButtons="false"
+            app:infiniteCarousel="true"
+            app:scaleOnScroll="true"
+            app:carouselGravity="CENTER"
+            app:carouselType="SHOWCASE"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+    </LinearLayout>
 </LinearLayout>
