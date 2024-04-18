@@ -69,6 +69,8 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation("com.github.sparrow007:carouselrecyclerview:1.2.6")
     implementation("com.github.bumptech.glide:glide:4.13.0")
+    implementation("me.relex:circleindicator:2.1.6")
+    implementation("org.imaginativeworld.whynotimagecarousel:whynotimagecarousel:2.1.0")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

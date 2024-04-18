@@ -10,5 +10,6 @@
         <item name="colorSecondaryVariant">@color/morado</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@color/white</item>
     </style>
 </resources>

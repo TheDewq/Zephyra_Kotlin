@@ -25,14 +25,29 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="290dp"
-        android:padding="15sp">
+        android:paddingStart="3dp"
+        android:layout_marginBottom="15sp"
+        android:paddingEnd="3dp">
 
+        <org.imaginativeworld.whynotimagecarousel.ImageCarousel
+            android:id="@+id/top_image_caroursel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            app:infiniteCarousel="true"
+            app:showBottomShadow="false"
+            app:autoPlay="true"
+            app:showNavigationButtons="false"
+            app:showTopShadow="false" />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/radius_corners"
-            android:clickable="false" />
+            android:clickable="false">
+
+
+        </RelativeLayout>
     </FrameLayout>
 
     <LinearLayout
@@ -116,7 +131,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingTop="0dp"
+        android:paddingTop="50dp"
         android:paddingBottom="0sp">
 
         <com.jackandphantom.carouselrecyclerview.CarouselRecyclerview
