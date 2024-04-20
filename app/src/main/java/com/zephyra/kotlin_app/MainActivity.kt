@@ -31,6 +31,13 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        val dbManager = Thread(Runnable {
+
+        })
+
+        dbManager.start()
+
     }
 }
 

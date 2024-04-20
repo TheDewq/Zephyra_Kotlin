@@ -53,6 +53,7 @@ class HomeFragment : Fragment() {
             carousel.setFlat(true)
         }
         // end carousel function //
+
         // top carousel //
         var init_carousel = carousel_superior().apply {  };
         init_carousel.init_carousel(root.findViewById(R.id.top_image_caroursel))
