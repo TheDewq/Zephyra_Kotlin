@@ -11,9 +11,19 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.viewbinding.ViewBinding
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
+import com.google.gson.reflect.TypeToken
 import com.zephyra.kotlin_app.R
 import com.zephyra.kotlin_app.databinding.FragmentHomeBinding
+import com.zephyra.kotlin_app.db.DbManagerSevice
+import com.zephyra.kotlin_app.db.models.productoimg
+import kotlinx.coroutines.launch
+import java.lang.Thread.sleep
+import kotlin.concurrent.thread
+
 
 class HomeFragment : Fragment() {
 
@@ -36,22 +46,29 @@ class HomeFragment : Fragment() {
         val root: View = binding.root
         val textView: TextView = binding.textView2
         val btn: Button = root.findViewById(R.id.btn_section)
-
-        // carousel functions //
         val itemlista = ArrayList<itemsModel>()
-        itemlista.add(itemsModel("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_GhG2cRGNg5hvvxKqNYp441_uOQCf5xkZn0FCHvygHw&s", 100000))
-        itemlista.add(itemsModel("https://images.wikidexcdn.net/mwuploads/esssbwiki/thumb/f/f2/latest/20160202180900/Kirby_SSB.png/1200px-Kirby_SSB.png", 999999))
-        itemlista.add(itemsModel("https://www.geekmi.news/__export/1616108436990/sites/debate/img/2021/03/18/kirby_1_crop1616108354116.jpg_423682103.jpg", 999999))
-        itemlista.add(itemsModel("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWD1hS9adWy-zSydolX3smyn4BsI0T3VH9itRISE4MLQ&s", 999999))
-        itemlista.add(itemsModel("https://www.shutterstock.com/image-vector/cute-2d-game-character-kirby-260nw-2171308275.jpg", 999999))
+        // carousel functions //
+        val db_results = DbManagerSevice.makeDbManagerService()
+        lifecycleScope.launch {
+            val rpt = db_results.get_all_products()
+            val link = "https://solar-blasts.000webhostapp.com/img/"
+            for (i in 0..4){
+                val gson = GsonBuilder().create()
+                var thelist = gson.fromJson<ArrayList<String>>(rpt[i].img, object :
+                    TypeToken<ArrayList<String>>(){}.type)
+                itemlista.add(itemsModel("$link${thelist[0]}", rpt[i].precio.toInt()))
+            }
+            val adapter = itemAdapter(itemlista)
 
-        val adapter = itemAdapter(itemlista)
-
-        binding.apply {
-            carousel.adapter = adapter
-            carousel.setInfinite(true)
-            carousel.setFlat(true)
+            binding.apply {
+                carousel.adapter = adapter
+                carousel.setInfinite(true)
+                carousel.setFlat(true)
+            }
         }
+
+        //itemlista.add(itemsModel("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_GhG2cRGNg5hvvxKqNYp441_uOQCf5xkZn0FCHvygHw&s", 100000))
+
         // end carousel function //
 
         // top carousel //

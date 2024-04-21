@@ -14,7 +14,7 @@
         android:layout_height="180sp"
         android:background="@drawable/radius_corners"
         android:padding="10dp"
-        android:scaleType="fitXY"
+        android:scaleType="centerCrop"
         app:srcCompat="@drawable/win95" />
 
     <FrameLayout
