@@ -10,16 +10,33 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.zephyra.kotlin_app.databinding.ActivityMainBinding
 import com.zephyra.kotlin_app.db.DbManagerSevice
+import com.zephyra.kotlin_app.db.models.productos
+import com.zephyra.kotlin_app.ui.home.HomeFragment
 import kotlinx.coroutines.launch
-import retrofit2.Retrofit
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-
+    private lateinit var dbRpt:productos
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
+        dbInvoke()
+
+
+    }
+
+    private fun dbInvoke() {
+
+            val db_results = DbManagerSevice.makeDbManagerService()
+            lifecycleScope.launch {
+                dbRpt = db_results.get_all_products()
+                data_manager.dbrpt = dbRpt
+                interfaceInit()
+            }
+
+    }
+    private fun interfaceInit(){
         supportActionBar?.hide()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -27,8 +44,7 @@ class MainActivity : AppCompatActivity() {
         val navView: BottomNavigationView = binding.navView
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.navigation_home, R.id.navigation_productos, R.id.navigation_carrito
@@ -36,9 +52,7 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-
-
-
     }
 }
+
 
