@@ -14,15 +14,16 @@
         android:layout_weight="1">
 
         <org.imaginativeworld.whynotimagecarousel.ImageCarousel
-            android:id="@+id/top_image_caroursel_product_view"
+            android:id="@+id/activity_product_topCarousel"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="10dp"
             app:autoPlay="true"
-            app:infiniteCarousel="true"
+            app:infiniteCarousel="false"
             app:showBottomShadow="false"
             app:showNavigationButtons="false"
-            app:showTopShadow="false" />
+            app:autoWidthFixing="true"
+            app:showTopShadow="true" />
 
     </FrameLayout>
 
@@ -63,6 +64,7 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/activity_producto_recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
