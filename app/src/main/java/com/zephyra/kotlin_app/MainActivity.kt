@@ -11,7 +11,8 @@ import androidx.navigation.ui.setupWithNavController
 import com.zephyra.kotlin_app.databinding.ActivityMainBinding
 import com.zephyra.kotlin_app.db.DbManagerSevice
 import com.zephyra.kotlin_app.db.models.productos
-import com.zephyra.kotlin_app.ui.home.HomeFragment
+import com.zephyra.kotlin_app.singleton_objects.carrito_manager
+import com.zephyra.kotlin_app.singleton_objects.data_manager
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
