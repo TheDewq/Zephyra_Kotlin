@@ -13,6 +13,7 @@ import com.zephyra.kotlin_app.db.DbManagerSevice
 import com.zephyra.kotlin_app.db.models.productos
 import com.zephyra.kotlin_app.singleton_objects.carrito_manager
 import com.zephyra.kotlin_app.singleton_objects.data_manager
+import com.zephyra.kotlin_app.singleton_objects.productos_manager
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
@@ -33,6 +34,7 @@ class MainActivity : AppCompatActivity() {
             lifecycleScope.launch {
                 dbRpt = db_results.get_all_products()
                 data_manager.dbrpt = dbRpt
+                productos_manager.current_list = dbRpt
                 interfaceInit()
             }
 

@@ -37,8 +37,7 @@ class productosFragment : Fragment() {
 
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
         val root: View = binding.root
-        assing_var()
-        create_recycler(data_manager.dbrpt, root)
+        create_recycler(productos_manager.current_list, root)
 
         return root
     }
@@ -47,23 +46,20 @@ class productosFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-    fun create_recycler(lista:productos, root:View){
-        var recycler:RecyclerView = root.findViewById(R.id.product_recycler)
+    fun create_recycler(lista:productos, root:View) {
+        var recycler: RecyclerView = root.findViewById(R.id.product_recycler)
         val productLista = ArrayList<productModel>()
 
         val link = "https://solar-blasts.000webhostapp.com/img/"
-        for (rpt in lista){
+        for (rpt in lista) {
             val gson = GsonBuilder().create()
             var thelist = gson.fromJson<ArrayList<String>>(rpt.img, object :
-                TypeToken<ArrayList<String>>(){}.type)
+                TypeToken<ArrayList<String>>() {}.type)
             println(rpt.precio)
-            productLista.add(productModel(rpt.precio, rpt.nombre, "$link${thelist[0]}"))
+            productLista.add(productModel(rpt.precio, rpt.nombre, "$link${thelist[0]}", rpt.id))
         }
         recycler.adapter = productAdapter(productLista)
         println(root.context)
         recycler.layoutManager = LinearLayoutManager(root.context)
-    }
-    fun assing_var(){
-        carrito_manager.current_list = data_manager.dbrpt
     }
 }

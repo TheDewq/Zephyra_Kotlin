@@ -3,6 +3,7 @@ package com.zephyra.kotlin_app.ui.productos
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -17,6 +18,8 @@ class productAdapter(var productlista:ArrayList<productModel>): RecyclerView.Ada
         val product_image: ImageView = view.findViewById(R.id.product_image);
         val name: TextView = view.findViewById(R.id.product_name)
         val price: TextView = view.findViewById(R.id.producto_price)
+        val ref: TextView = view.findViewById(R.id.ref)
+        val btn_agregar:FrameLayout = view.findViewById(R.id.product_btn_agregar)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Viewholder {
@@ -33,7 +36,13 @@ class productAdapter(var productlista:ArrayList<productModel>): RecyclerView.Ada
         Glide.with(holder.product_image.context).load(currentItem.imagen).into(holder.product_image)
         holder.name.text = currentItem.nombre
         holder.price.text = currentItem.precio
+        holder.ref.text = currentItem.ref
+        holder.btn_agregar.setOnClickListener {
+            println("esta si es carajo ${currentItem.ref}")
+        }
     }
+
+
 }
 
 
