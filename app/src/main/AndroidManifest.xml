@@ -15,7 +15,7 @@
         android:theme="@style/Theme.Zephyra_kotlin"
         tools:targetApi="31">
         <activity
-            android:name=".producto_view"
+            android:name=".ui.activity_product.producto_view"
             android:exported="false" />
         <activity
             android:name=".carrusel_view"

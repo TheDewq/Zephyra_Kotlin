@@ -11,8 +11,7 @@ import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.zephyra.kotlin_app.R
-import com.zephyra.kotlin_app.producto_view
-import com.zephyra.kotlin_app.ui.productos.productAdapter.*
+import com.zephyra.kotlin_app.ui.activity_product.producto_view
 
 class productAdapter(var productlista:ArrayList<productModel>): RecyclerView.Adapter<productAdapter.Viewholder>() {
 

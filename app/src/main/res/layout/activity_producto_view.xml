@@ -6,12 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".producto_view">
+    tools:context=".ui.activity_product.producto_view">
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:padding="10sp">
 
         <org.imaginativeworld.whynotimagecarousel.ImageCarousel
             android:id="@+id/activity_product_topCarousel"
@@ -19,11 +20,11 @@
             android:layout_height="match_parent"
             android:padding="10dp"
             app:autoPlay="true"
+            app:autoWidthFixing="false"
             app:infiniteCarousel="false"
             app:showBottomShadow="false"
             app:showNavigationButtons="false"
-            app:autoWidthFixing="true"
-            app:showTopShadow="true" />
+            app:showTopShadow="false" />
 
     </FrameLayout>
 
@@ -37,8 +38,11 @@
             android:id="@+id/activity_product_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16sp"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:fontFamily="@font/alata"
+            android:text="TextView"
+            android:textSize="14sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -51,7 +55,7 @@
             android:id="@+id/textView14"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="$"
+            android:text="$ "
             android:textSize="24sp" />
 
         <TextView
@@ -59,6 +63,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:fontFamily="@font/alata"
             android:text="TextView"
             android:textSize="34sp" />
     </LinearLayout>
@@ -78,6 +83,32 @@
         android:padding="7dp">
 
         <RelativeLayout
+            android:id="@+id/activity_product_btn_close"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center|center_horizontal"
+            android:background="@drawable/btn_agregar_item"
+            android:backgroundTint="#F44336"
+            android:paddingStart="3dp"
+            android:paddingEnd="3dp"
+            android:paddingBottom="10dp">
+
+            <ImageView
+                android:id="@+id/imgviewbtnclose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:tint="@color/white"
+                app:srcCompat="@drawable/baseline_block_24"
+                tools:ignore="UseAppTint" />
+        </RelativeLayout>
+
+        <Space
+            android:layout_width="3dp"
+            android:layout_height="3dp" />
+
+        <RelativeLayout
+            android:id="@+id/activity_product_btn_agregar"
             android:layout_width="129dp"
             android:layout_height="48dp"
             android:layout_gravity="center|center_horizontal"
@@ -86,27 +117,32 @@
             android:paddingEnd="3dp"
             android:paddingBottom="10dp">
 
-            <TextView
-                android:id="@+id/textView16"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="10dp"
-                android:layout_toStartOf="@+id/imageView3"
-                android:fontFamily="@font/alata"
-                android:text="Agregar"
-                android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:layout_centerInParent="true"
+                android:gravity="bottom"
+                android:orientation="horizontal"
+                android:paddingBottom="6sp">
 
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="18dp"
-                android:layout_marginEnd="7dp"
-                app:srcCompat="@drawable/baseline_add_shopping_cart_24" />
+                <TextView
+                    android:id="@+id/textView16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/alata"
+                    android:text="Agregar"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    tools:ignore="NotSibling" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    android:tint="@color/white"
+                    app:srcCompat="@drawable/baseline_add_shopping_cart_24" />
+            </LinearLayout>
+
         </RelativeLayout>
     </LinearLayout>
 </LinearLayout>

@@ -1,4 +1,4 @@
-package com.zephyra.kotlin_app
+package com.zephyra.kotlin_app.ui.activity_product
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -7,12 +7,13 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
+import com.zephyra.kotlin_app.R
 import com.zephyra.kotlin_app.db.models.productos
 import com.zephyra.kotlin_app.singleton_objects.data_manager
-import com.zephyra.kotlin_app.ui.home.itemsModel
 import org.imaginativeworld.whynotimagecarousel.ImageCarousel
 import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
 
@@ -43,6 +44,7 @@ class producto_view : AppCompatActivity() {
         precio.text = current_item!!.precio
         nombre.text = current_item!!.nombre
         set_top_carousel(dump_json_img(current_item.img))
+        set_bottom_recycler(current_item.tallas, current_item.material,current_item.tipo)
 
 
     }
@@ -63,4 +65,21 @@ class producto_view : AppCompatActivity() {
         carousel.setData(list)
 
     }
+    fun set_bottom_recycler(tallas: String, material: String, tipo: String){
+        var recycler:RecyclerView = findViewById(R.id.activity_producto_recycler)
+        val productLista = ArrayList<Activity_productoModel>()
+        //tallas
+        val tallas_array = dump_json_img(tallas)
+        productLista.add(Activity_productoModel("tallas",tallas_array[0]))
+        for (i in tallas_array.drop(1)){
+            productLista.add(Activity_productoModel("",i))
+        }
+        productLista.add(Activity_productoModel("material",material))
+        productLista.add(Activity_productoModel("tipo",tipo))
+        recycler.adapter = Activity_productAdapter(productLista)
+        recycler.layoutManager = LinearLayoutManager(this)
+
+    }
+
+
 }
