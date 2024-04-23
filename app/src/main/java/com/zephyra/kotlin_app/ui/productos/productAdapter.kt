@@ -11,17 +11,19 @@ import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.zephyra.kotlin_app.R
+import com.zephyra.kotlin_app.singleton_objects.carrito_manager
 import com.zephyra.kotlin_app.ui.activity_product.producto_view
 
 class productAdapter(var productlista:ArrayList<productModel>): RecyclerView.Adapter<productAdapter.Viewholder>() {
 
     class Viewholder(view:View):RecyclerView.ViewHolder(view) {
 
-        val product_image: ImageView = view.findViewById(R.id.product_image);
-        val name: TextView = view.findViewById(R.id.product_name)
-        val price: TextView = view.findViewById(R.id.producto_price)
+        val product_image: ImageView = view.findViewById(R.id.carrito_item_img);
+        val name: TextView = view.findViewById(R.id.carrito_item_title)
+        val price: TextView = view.findViewById(R.id.carrito_item_price)
         val ref: TextView = view.findViewById(R.id.ref)
         val btn_agregar:FrameLayout = view.findViewById(R.id.product_btn_agregar)
+        val img: FrameLayout = view.findViewById(R.id.product_frame_img)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Viewholder {
@@ -39,10 +41,13 @@ class productAdapter(var productlista:ArrayList<productModel>): RecyclerView.Ada
         holder.name.text = currentItem.nombre
         holder.price.text = currentItem.precio
         holder.ref.text = currentItem.ref
-        holder.btn_agregar.setOnClickListener {
+        holder.img.setOnClickListener {
             var intent = Intent(holder.btn_agregar.context, producto_view::class.java)
             intent.putExtra("ref",currentItem.ref)
             startActivity(holder.btn_agregar.context, intent, null)
+        }
+        holder.btn_agregar.setOnClickListener {
+            carrito_manager.addItembyRef(currentItem.ref)
         }
     }
 

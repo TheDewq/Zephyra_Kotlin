@@ -13,11 +13,11 @@
         android:layout_height="150sp">
 
         <ImageView
-            android:id="@+id/product_image"
+            android:id="@+id/carrito_item_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10sp"
-            android:scaleType="fitXY"
+            android:scaleType="centerCrop"
             app:srcCompat="@drawable/win95" />
 
         <FrameLayout
@@ -44,7 +44,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/product_name"
+                android:id="@+id/carrito_item_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TextView" />
@@ -52,7 +52,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="bottom"
+                android:gravity="center_vertical"
                 android:orientation="horizontal">
 
                 <TextView
@@ -63,7 +63,7 @@
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/producto_price"
+                    android:id="@+id/carrito_item_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4sp"
@@ -79,7 +79,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_alignParentEnd="true"
-            android:gravity="bottom"
+            android:gravity="center_vertical"
             android:orientation="vertical"
             android:paddingBottom="10dp">
 
@@ -92,7 +92,7 @@
                 android:paddingBottom="5dp">
 
                 <EditText
-                    android:id="@+id/editTextNumberSigned"
+                    android:id="@+id/carrito_item_quanty"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:ems="1"

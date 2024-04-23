@@ -2,6 +2,9 @@ package com.zephyra.kotlin_app.ui.activity_product
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.KeyEvent
+import android.widget.FrameLayout
+import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -13,6 +16,7 @@ import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import com.zephyra.kotlin_app.R
 import com.zephyra.kotlin_app.db.models.productos
+import com.zephyra.kotlin_app.singleton_objects.carrito_manager
 import com.zephyra.kotlin_app.singleton_objects.data_manager
 import org.imaginativeworld.whynotimagecarousel.ImageCarousel
 import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
@@ -35,6 +39,8 @@ class producto_view : AppCompatActivity() {
         val precio:TextView = findViewById(R.id.activity_product_price)
         val nombre:TextView = findViewById(R.id.activity_product_name)
         val caracteristicas:RecyclerView = findViewById(R.id.activity_producto_recycler)
+        val btnCerrar:RelativeLayout = findViewById(R.id.activity_product_btn_close)
+        val btnAgregar:RelativeLayout = findViewById(R.id.activity_product_btn_agregar)
 
         //guardar informacion de producto de manera local
         val rpt:productos = data_manager.dbrpt
@@ -45,9 +51,16 @@ class producto_view : AppCompatActivity() {
         nombre.text = current_item!!.nombre
         set_top_carousel(dump_json_img(current_item.img))
         set_bottom_recycler(current_item.tallas, current_item.material,current_item.tipo)
-
+        //listeners
+        btnCerrar.setOnClickListener{
+            finish()
+        }
+        btnAgregar.setOnClickListener{
+            carrito_manager.addItem(current_item)
+        }
 
     }
+
     fun dump_json_img(jsonImg:String):ArrayList<String>{
         val gson = GsonBuilder().create()
         var thelist = gson.fromJson<ArrayList<String>>(jsonImg, object :

@@ -42,7 +42,7 @@ HomeFragment() : Fragment() {
 
         // botton view carousel functions //
 
-            bottom_carousel(data_manager.dbrpt)
+        bottom_carousel(data_manager.dbrpt)
 
 
         // top carousel //
