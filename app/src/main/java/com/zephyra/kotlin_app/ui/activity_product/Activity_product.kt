@@ -6,6 +6,7 @@ import android.view.KeyEvent
 import android.widget.FrameLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -18,6 +19,8 @@ import com.zephyra.kotlin_app.R
 import com.zephyra.kotlin_app.db.models.productos
 import com.zephyra.kotlin_app.singleton_objects.carrito_manager
 import com.zephyra.kotlin_app.singleton_objects.data_manager
+import com.zephyra.kotlin_app.singleton_objects.productos_manager
+import com.zephyra.kotlin_app.singleton_objects.productos_manager.make_toast
 import org.imaginativeworld.whynotimagecarousel.ImageCarousel
 import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
 
@@ -56,7 +59,12 @@ class producto_view : AppCompatActivity() {
             finish()
         }
         btnAgregar.setOnClickListener{
-            carrito_manager.addItem(current_item)
+            if (!carrito_manager.is_added(current_item)){
+                make_toast("Producto agregado con exito ¡revisa el carrito!")
+                carrito_manager.addItem(current_item)
+            }else{
+                make_toast("Ya agregaste este producto ¡revisa el carrito!")
+            }
         }
 
     }

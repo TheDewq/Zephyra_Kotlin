@@ -6,12 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.zephyra.kotlin_app.R
 import com.zephyra.kotlin_app.singleton_objects.carrito_manager
+import com.zephyra.kotlin_app.singleton_objects.productos_manager
 import com.zephyra.kotlin_app.ui.activity_product.producto_view
 
 class productAdapter(var productlista:ArrayList<productModel>): RecyclerView.Adapter<productAdapter.Viewholder>() {
@@ -24,6 +26,7 @@ class productAdapter(var productlista:ArrayList<productModel>): RecyclerView.Ada
         val ref: TextView = view.findViewById(R.id.ref)
         val btn_agregar:FrameLayout = view.findViewById(R.id.product_btn_agregar)
         val img: FrameLayout = view.findViewById(R.id.product_frame_img)
+        val container:LinearLayout = view.findViewById(R.id.product_layout_container)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Viewholder {
@@ -47,7 +50,20 @@ class productAdapter(var productlista:ArrayList<productModel>): RecyclerView.Ada
             startActivity(holder.btn_agregar.context, intent, null)
         }
         holder.btn_agregar.setOnClickListener {
-            carrito_manager.addItembyRef(currentItem.ref)
+            println(!carrito_manager.is_addedbyref(currentItem.ref))
+            if (!carrito_manager.is_addedbyref(currentItem.ref)){
+                productos_manager.make_toast("Producto agregado con exito ¡revisa el carrito!")
+                carrito_manager.addItembyRef(currentItem.ref)
+                println(carrito_manager.current_list)
+            }else{
+                productos_manager.make_toast("Ya agregaste este producto ¡revisa el carrito!")
+            }
+
+        }
+        holder.container.setOnClickListener {
+            var intent = Intent(holder.btn_agregar.context, producto_view::class.java)
+            intent.putExtra("ref",currentItem.ref)
+            startActivity(holder.btn_agregar.context, intent, null)
         }
     }
 

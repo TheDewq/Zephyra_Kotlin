@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.widget.addTextChangedListener
@@ -22,7 +23,9 @@ class carritoAdapter (private val carritoLista:ArrayList<carritoModel>): Recycle
         val titulo:TextView = view.findViewById(R.id.carrito_item_title)
         val precio:TextView = view.findViewById(R.id.carrito_item_price)
         val img:ImageView = view.findViewById(R.id.carrito_item_img)
-        val cantidad:EditText = view.findViewById(R.id.carrito_item_quanty)
+        val cantidad:TextView = view.findViewById(R.id.carrito_item_quanty)
+        val btn_more:FrameLayout = view.findViewById(R.id.carrito_item_btn_upc)
+        val btn_less:FrameLayout = view.findViewById(R.id.carrito_item_btn_downc)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): viewHolder {
@@ -37,26 +40,23 @@ class carritoAdapter (private val carritoLista:ArrayList<carritoModel>): Recycle
         holder.titulo.text = currentItem.titulo
         holder.precio.text = currentItem.precio
         holder.cantidad.setText(currentItem.cantidad)
-        holder.cantidad.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
-            }
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-
-            }
-
-            override fun afterTextChanged(s: Editable?) {
-                val cantidadText = s.toString()
-                val cantidadNumerica = cantidadText.toIntOrNull()
-
-                if (cantidadNumerica != null) {
-                    carrito_manager.change_cantidadbyRef(currentItem.ref,cantidadNumerica)
-                } else {
-                    holder.cantidad.setText("0")
-                }
-            }
-        })
+        holder.btn_more.setOnClickListener {
+            //actualizar valor
+            carrito_manager.change_cantidadbyRef(currentItem.ref, currentItem.cantidad.toString().toInt()+1)
+            //actualizar vista
+            carrito_manager.update_recycler()
+            //actualizar el total
+            carrito_manager.update_total()
+        }
+        holder.btn_less.setOnClickListener {
+            //actualizar valor
+            carrito_manager.change_cantidadbyRef(currentItem.ref, currentItem.cantidad.toString().toInt()-1)
+            //actualizar vista
+            carrito_manager.update_recycler()
+            //actualizar el total
+            carrito_manager.update_total()
+        }
         Glide.with(holder.img).load(currentItem.img).into(holder.img)
     }
+
 }

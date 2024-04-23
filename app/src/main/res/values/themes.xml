@@ -11,5 +11,6 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Customize your theme here. -->
         <item name="android:windowBackground">@color/white</item>
+        <item name="android:windowBackgroundFallback">@color/black</item>
     </style>
 </resources>

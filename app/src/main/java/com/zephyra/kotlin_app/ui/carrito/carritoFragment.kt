@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -14,6 +15,7 @@ import com.google.gson.reflect.TypeToken
 import com.zephyra.kotlin_app.R
 import com.zephyra.kotlin_app.databinding.FragmentNotificationsBinding
 import com.zephyra.kotlin_app.singleton_objects.carrito_manager
+import com.zephyra.kotlin_app.singleton_objects.productos_manager
 import com.zephyra.kotlin_app.ui.home.itemsModel
 import com.zephyra.kotlin_app.ui.productos.productAdapter
 
@@ -35,8 +37,14 @@ class carritoFragment : Fragment() {
 
         _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
         val root: View = binding.root
+        productos_manager.context = root.context
+        carrito_manager.context = root.context
         set_recycler(root)
         set_total(root)
+        val btn_comprar:Button = root.findViewById(R.id.carrito_btn_comprar)
+        btn_comprar.setOnClickListener{
+
+        }
         notificationsViewModel.text.observe(viewLifecycleOwner) {
 
         }
@@ -60,9 +68,12 @@ class carritoFragment : Fragment() {
         }
         recycler.adapter = carritoAdapter(lista)
         recycler.layoutManager = LinearLayoutManager(root.context)
+        //pasar referencias al carrito manager
+        carrito_manager.recyclerRef = recycler
     }
     fun set_total(root:View){
         val total:TextView = root.findViewById(R.id.carrito_total)
         total.text = carrito_manager.total.toString()
+        carrito_manager.totalRef = total
     }
 }

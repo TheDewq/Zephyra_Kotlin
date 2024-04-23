@@ -14,9 +14,9 @@
 
         <ImageView
             android:id="@+id/carrito_item_img"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10sp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10sp"
             android:scaleType="centerCrop"
             app:srcCompat="@drawable/win95" />
 
@@ -79,25 +79,59 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_alignParentEnd="true"
-            android:gravity="center_vertical"
             android:orientation="vertical"
             android:paddingBottom="10dp">
 
             <FrameLayout
+                android:id="@+id/carrito_item_btn_upc"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:background="@drawable/outside_rounded_stroke"
-                android:paddingStart="5dp"
-                android:paddingEnd="5dp"
-                android:paddingBottom="5dp">
+                android:clickable="true"
+                android:padding="4dp"
+                tools:ignore="SpeakableTextPresentCheck">
 
-                <EditText
-                    android:id="@+id/carrito_item_quanty"
+                <ImageView
+                    android:id="@+id/imageView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:ems="1"
-                    android:inputType="numberSigned"
+                    android:tint="?android:windowBackgroundFallback"
+                    app:srcCompat="@drawable/baseline_arrow_drop_up_24"
+                    tools:ignore="UseAppTint" />
+            </FrameLayout>
+
+            <RelativeLayout
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/outside_rounded_stroke">
+
+                <TextView
+                    android:id="@+id/carrito_item_quanty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/alata"
+                    android:text="99"
+                    android:textAlignment="center"
+                    android:textSize="16sp"
                     tools:ignore="SpeakableTextPresentCheck" />
+
+            </RelativeLayout>
+
+            <FrameLayout
+                android:id="@+id/carrito_item_btn_downc"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:clickable="true"
+                android:padding="4dp"
+                tools:ignore="SpeakableTextPresentCheck">
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:tint="?android:windowBackgroundFallback"
+                    app:srcCompat="@drawable/outline_arrow_drop_down_24"
+                    tools:ignore="UseAppTint" />
             </FrameLayout>
 
         </LinearLayout>

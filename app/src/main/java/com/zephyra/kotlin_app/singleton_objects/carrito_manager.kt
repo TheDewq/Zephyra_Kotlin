@@ -1,10 +1,22 @@
 package com.zephyra.kotlin_app.singleton_objects
 
+import android.content.Context
+import android.widget.TextView
+import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.gson.GsonBuilder
+import com.google.gson.reflect.TypeToken
 import com.zephyra.kotlin_app.db.models.productosItem
+import com.zephyra.kotlin_app.ui.carrito.carritoAdapter
+import com.zephyra.kotlin_app.ui.carrito.carritoModel
 
 object carrito_manager {
     var current_list = ArrayList<carrito_cantidades>()
     var total = 0
+    lateinit var totalRef:TextView
+    lateinit var recyclerRef:RecyclerView
+    lateinit var context:Context
 
     fun addItem(item:productosItem):Boolean{
         for (i in current_list){
@@ -33,7 +45,8 @@ object carrito_manager {
                     i.cantidad = 6
                 }
             }
-        }else if(current_cantidad < 0){
+        }else if(current_cantidad <= 0 || current_cantidad == null){
+            println("la cantidad actual es: $current_cantidad")
             for (i in current_list){
                 if(i.producto == item){
                     current_list.remove(i)
@@ -69,5 +82,43 @@ object carrito_manager {
 
     fun change_cantidadbyRef(ref: String, cantidad: Int) {
         change_cantidad(data_manager.dbrpt.find { it.id == ref }!!, cantidad)
+    }
+    fun update_recycler(){
+        val recycler:RecyclerView = recyclerRef
+        var lista = ArrayList<carritoModel>()
+        var current_cart = carrito_manager.current_list
+        val link = "https://solar-blasts.000webhostapp.com/img/"
+        for (item in current_cart){
+            val gson = GsonBuilder().create()
+            var thelist = gson.fromJson<ArrayList<String>>(item.producto.img, object :
+                TypeToken<ArrayList<String>>(){}.type)
+            lista.add(carritoModel(item.producto.nombre, item.producto.precio, item.cantidad.toString(), "$link${thelist[0]}", item.producto.id))
+        }
+        recycler.adapter = carritoAdapter(lista)
+        recycler.layoutManager = LinearLayoutManager(context)
+
+
+    }
+    fun is_addedbyref(ref: String):Boolean{
+        for (i in current_list){
+            if(i.producto.id == ref){
+                return true
+            }
+        }
+        return false
+    }
+    fun is_added(item:productosItem):Boolean{
+        for (i in current_list){
+            if(i.producto == item){
+                return true
+            }
+        }
+        return false
+    }
+    fun update_total(){
+        totalRef.text = total.toString()
+    }
+    fun make_toast(mensaje:String){
+        Toast.makeText(context, mensaje, Toast.LENGTH_LONG).show()
     }
 }
