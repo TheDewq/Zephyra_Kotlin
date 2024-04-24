@@ -9,13 +9,22 @@
         android:id="@+id/navigation_home"
         android:name="com.zephyra.kotlin_app.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_productos"
+            app:restoreState="true"
+            app:destination="@id/navigation_productos" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_productos"
         android:name="com.zephyra.kotlin_app.ui.productos.productosFragment"
         android:label="@string/title_productos"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_navigation_productos_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_carrito"

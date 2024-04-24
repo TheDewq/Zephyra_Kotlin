@@ -32,7 +32,7 @@ class itemAdapter(private var itemlista:List<itemsModel>): RecyclerView.Adapter<
             carouselItemPrice.text = itemlista[position].precio.toString()
             homeBottomCarruselItem.setOnClickListener{
                 var intent = Intent(homeBottomCarruselItem.context, producto_view::class.java)
-                //intent.putExtra("ref",item.ref)
+                intent.putExtra("ref",item.ref)
                 startActivity(homeBottomCarruselItem.context, intent, null)
             }
         }

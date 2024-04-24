@@ -65,22 +65,30 @@
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/btn_section"
+            <RelativeLayout
+                android:id="@+id/home_btn_1"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_weight="1"
                 android:background="@drawable/custom_section_button"
-                android:backgroundTint="#E91E63"
-                android:text="x"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+                android:backgroundTint="@color/azul_claro"
+                android:clickable="true"
+                android:padding="15dp"
+                tools:ignore="SpeakableTextPresentCheck">
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/clothes_shirt_ui_svgrepo_com" />
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/textView7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView"
+                android:text="Camiseta"
                 android:textAlignment="center" />
         </LinearLayout>
 
@@ -91,22 +99,30 @@
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/button2"
+            <RelativeLayout
+                android:id="@+id/home_btn_2"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_weight="1"
                 android:background="@drawable/custom_section_button"
-                android:backgroundTint="#E91E63"
-                android:text="x"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+                android:backgroundTint="@color/azul_claro"
+                android:clickable="true"
+                android:padding="15dp"
+                tools:ignore="SpeakableTextPresentCheck">
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/clothes_pants_svgrepo_com" />
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/textView8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView"
+                android:text="Pantalones"
                 android:textAlignment="center" />
         </LinearLayout>
 
@@ -117,22 +133,30 @@
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/button3"
+            <RelativeLayout
+                android:id="@+id/home_btn_3"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_weight="1"
                 android:background="@drawable/custom_section_button"
-                android:backgroundTint="#E91E63"
-                android:text="x"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+                android:backgroundTint="@color/azul_claro"
+                android:clickable="true"
+                android:padding="15dp"
+                tools:ignore="SpeakableTextPresentCheck">
+
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/clothes_windbreaker_svgrepo_com" />
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/textView9"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView"
+                android:text="hoddies"
                 android:textAlignment="center" />
         </LinearLayout>
 
@@ -143,22 +167,30 @@
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/button4"
+            <RelativeLayout
+                android:id="@+id/home_btn_4"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_weight="1"
                 android:background="@drawable/custom_section_button"
-                android:backgroundTint="#E91E63"
-                android:text="x"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+                android:backgroundTint="@color/azul_claro"
+                android:clickable="true"
+                android:padding="15dp"
+                tools:ignore="SpeakableTextPresentCheck">
+
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/shoes_4_svgrepo_com" />
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/textView12"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView"
+                android:text="zapatos"
                 android:textAlignment="center" />
         </LinearLayout>
 
@@ -169,22 +201,30 @@
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/button5"
+            <RelativeLayout
+                android:id="@+id/home_btn_5"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_weight="1"
                 android:background="@drawable/custom_section_button"
-                android:backgroundTint="#E91E63"
-                android:text="x"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+                android:backgroundTint="@color/azul_claro"
+                android:clickable="true"
+                android:padding="15dp"
+                tools:ignore="SpeakableTextPresentCheck">
+
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/sunglasses_accesory_svgrepo_com" />
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/textView13"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView"
+                android:text="accesorios"
                 android:textAlignment="center" />
         </LinearLayout>
 
