@@ -20,9 +20,9 @@ class productAdapter(var productlista:ArrayList<productModel>): RecyclerView.Ada
 
     class Viewholder(view:View):RecyclerView.ViewHolder(view) {
 
-        val product_image: ImageView = view.findViewById(R.id.carrito_item_img);
-        val name: TextView = view.findViewById(R.id.carrito_item_title)
-        val price: TextView = view.findViewById(R.id.carrito_item_price)
+        val product_image: ImageView = view.findViewById(R.id.checkout_item_img);
+        val name: TextView = view.findViewById(R.id.checkout_item_title)
+        val price: TextView = view.findViewById(R.id.checkout_item_price)
         val ref: TextView = view.findViewById(R.id.ref)
         val btn_agregar:FrameLayout = view.findViewById(R.id.product_btn_agregar)
         val img: FrameLayout = view.findViewById(R.id.product_frame_img)

@@ -13,7 +13,7 @@
         android:layout_height="150sp">
 
         <ImageView
-            android:id="@+id/carrito_item_img"
+            android:id="@+id/checkout_item_img"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="10sp"
@@ -44,7 +44,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/carrito_item_title"
+                android:id="@+id/checkout_item_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TextView" />
@@ -63,7 +63,7 @@
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/carrito_item_price"
+                    android:id="@+id/checkout_item_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4sp"
@@ -105,7 +105,7 @@
                 android:background="@drawable/outside_rounded_stroke">
 
                 <TextView
-                    android:id="@+id/carrito_item_quanty"
+                    android:id="@+id/checkout_item_quanty"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
