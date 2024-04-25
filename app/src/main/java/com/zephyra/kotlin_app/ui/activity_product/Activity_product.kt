@@ -60,10 +60,10 @@ class producto_view : AppCompatActivity() {
         }
         btnAgregar.setOnClickListener{
             if (!carrito_manager.is_added(current_item)){
-                make_toast("Producto agregado con exito ¡revisa el carrito!")
+                make_toast("Producto agregado con exito ¡revisa el carrito!",this)
                 carrito_manager.addItem(current_item)
             }else{
-                make_toast("Ya agregaste este producto ¡revisa el carrito!")
+                make_toast("Ya agregaste este producto ¡revisa el carrito!",this)
             }
         }
 

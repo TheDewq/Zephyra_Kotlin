@@ -8,11 +8,10 @@ import com.zephyra.kotlin_app.db.models.productos
 @SuppressLint("StaticFieldLeak")
 object productos_manager {
     lateinit var current_list:productos
-    lateinit var context: Context
     init {
         println("productos inicializados")
     }
-    fun make_toast(mensaje:String){
+    fun make_toast(mensaje:String, context:Context){
         Toast.makeText(context, mensaje, Toast.LENGTH_SHORT).show()
     }
     fun change_category(category: String){

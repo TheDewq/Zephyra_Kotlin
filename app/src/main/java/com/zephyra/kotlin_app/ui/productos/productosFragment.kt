@@ -39,7 +39,6 @@ class productosFragment : Fragment() {
 
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
         val root: View = binding.root
-        productos_manager.context = root.context
         create_recycler(productos_manager.current_list, root)
 
         return root

@@ -1,5 +1,6 @@
 package com.zephyra.kotlin_app.ui.carrito
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,9 +14,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import com.zephyra.kotlin_app.R
+import com.zephyra.kotlin_app.databinding.ActivityCheckoutBinding
 import com.zephyra.kotlin_app.databinding.FragmentNotificationsBinding
 import com.zephyra.kotlin_app.singleton_objects.carrito_manager
 import com.zephyra.kotlin_app.singleton_objects.productos_manager
+import com.zephyra.kotlin_app.ui.activity_checkout.activityCheckout
 import com.zephyra.kotlin_app.ui.home.itemsModel
 import com.zephyra.kotlin_app.ui.productos.productAdapter
 
@@ -37,13 +40,12 @@ class carritoFragment : Fragment() {
 
         _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
         val root: View = binding.root
-        productos_manager.context = root.context
-        carrito_manager.context = root.context
         set_recycler(root)
         set_total(root)
         val btn_comprar:Button = root.findViewById(R.id.carrito_btn_comprar)
         btn_comprar.setOnClickListener{
-
+            val intent = Intent(root.context, activityCheckout::class.java)
+            startActivity(intent)
         }
         notificationsViewModel.text.observe(viewLifecycleOwner) {
 

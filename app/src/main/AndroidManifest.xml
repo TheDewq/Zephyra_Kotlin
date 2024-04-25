@@ -15,6 +15,9 @@
         android:theme="@style/Theme.Zephyra_kotlin"
         tools:targetApi="31">
         <activity
+            android:name=".ui.activity_order_confirmada.activity_orden_confirmada"
+            android:exported="false" />
+        <activity
             android:name=".ui.activity_checkout.activityCheckout"
             android:exported="false" />
         <activity

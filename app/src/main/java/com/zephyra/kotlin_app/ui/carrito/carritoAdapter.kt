@@ -37,7 +37,7 @@ class carritoAdapter (private val carritoLista:ArrayList<carritoModel>): Recycle
             //actualizar valor
             carrito_manager.change_cantidadbyRef(currentItem.ref, currentItem.cantidad.toString().toInt()+1)
             //actualizar vista
-            carrito_manager.update_recycler()
+            carrito_manager.update_recycler(holder.btn_more.context)
             //actualizar el total
             carrito_manager.update_total()
         }
@@ -45,7 +45,7 @@ class carritoAdapter (private val carritoLista:ArrayList<carritoModel>): Recycle
             //actualizar valor
             carrito_manager.change_cantidadbyRef(currentItem.ref, currentItem.cantidad.toString().toInt()-1)
             //actualizar vista
-            carrito_manager.update_recycler()
+            carrito_manager.update_recycler(holder.btn_less.context)
             //actualizar el total
             carrito_manager.update_total()
         }

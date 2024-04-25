@@ -52,11 +52,11 @@ class productAdapter(var productlista:ArrayList<productModel>): RecyclerView.Ada
         holder.btn_agregar.setOnClickListener {
             println(!carrito_manager.is_addedbyref(currentItem.ref))
             if (!carrito_manager.is_addedbyref(currentItem.ref)){
-                productos_manager.make_toast("Producto agregado con exito ¡revisa el carrito!")
+                productos_manager.make_toast("Producto agregado con exito ¡revisa el carrito!", holder.btn_agregar.context)
                 carrito_manager.addItembyRef(currentItem.ref)
                 println(carrito_manager.current_list)
             }else{
-                productos_manager.make_toast("Ya agregaste este producto ¡revisa el carrito!")
+                productos_manager.make_toast("Ya agregaste este producto ¡revisa el carrito!", holder.btn_agregar.context)
             }
 
         }

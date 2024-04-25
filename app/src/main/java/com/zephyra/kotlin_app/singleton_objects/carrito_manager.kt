@@ -16,14 +16,13 @@ object carrito_manager {
     var total = 0
     lateinit var totalRef:TextView
     lateinit var recyclerRef:RecyclerView
-    lateinit var context:Context
-
+    init {
+        println()
+    }
     fun addItem(item:productosItem):Boolean{
-        for (i in current_list){
-            if (i.producto == item){
-                println("producto ya en carrito")
-                return false
-            }
+        val producto_encontrado =current_list.find { it.producto == item }
+        if(producto_encontrado != null){
+            return false
         }
 
         current_list.add(carrito_cantidades(item,1, newtotal( item.precio.toInt(), 1)))
@@ -45,13 +44,9 @@ object carrito_manager {
                     i.cantidad = 6
                 }
             }
-        }else if(current_cantidad <= 0 || current_cantidad == null){
+        }else if(current_cantidad <= 0){
             println("la cantidad actual es: $current_cantidad")
-            for (i in current_list){
-                if(i.producto == item){
-                    current_list.remove(i)
-                }
-            }
+            current_list.remove(current_list.find { it.producto.id == item.id })
         }else{
             for (i in current_list){
                 if(i.producto == item){
@@ -83,7 +78,7 @@ object carrito_manager {
     fun change_cantidadbyRef(ref: String, cantidad: Int) {
         change_cantidad(data_manager.dbrpt.find { it.id == ref }!!, cantidad)
     }
-    fun update_recycler(){
+    fun update_recycler(context:Context){
         val recycler:RecyclerView = recyclerRef
         var lista = ArrayList<carritoModel>()
         var current_cart = carrito_manager.current_list
@@ -118,7 +113,7 @@ object carrito_manager {
     fun update_total(){
         totalRef.text = total.toString()
     }
-    fun make_toast(mensaje:String){
+    fun make_toast(mensaje:String, context: Context){
         Toast.makeText(context, mensaje, Toast.LENGTH_LONG).show()
     }
 }
