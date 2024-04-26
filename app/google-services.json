@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "312483959905",
+    "project_id": "proyecto-final-41a09",
+    "storage_bucket": "proyecto-final-41a09.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:312483959905:android:20c95269943839676b0620",
+        "android_client_info": {
+          "package_name": "com.zephyra.kotlin_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDE4CTSWoy0_Iqx3PJsxmN6uYEgIOLaUTQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -5,6 +5,9 @@
       <entry key="MainActivity">
         <State />
       </entry>
+      <entry key="firebase">
+        <State />
+      </entry>
     </value>
   </component>
 </project>

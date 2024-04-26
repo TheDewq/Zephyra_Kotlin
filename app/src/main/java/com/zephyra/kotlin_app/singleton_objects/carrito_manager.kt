@@ -1,5 +1,6 @@
 package com.zephyra.kotlin_app.singleton_objects
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.widget.TextView
 import android.widget.Toast
@@ -11,6 +12,7 @@ import com.zephyra.kotlin_app.db.models.productosItem
 import com.zephyra.kotlin_app.ui.carrito.carritoAdapter
 import com.zephyra.kotlin_app.ui.carrito.carritoModel
 
+@SuppressLint("StaticFieldLeak")
 object carrito_manager {
     var current_list = ArrayList<carrito_cantidades>()
     var total = 0
