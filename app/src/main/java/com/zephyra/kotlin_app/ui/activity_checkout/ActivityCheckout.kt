@@ -2,11 +2,9 @@ package com.zephyra.kotlin_app.ui.activity_checkout
 
 import android.content.Intent
 import android.content.res.ColorStateList
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
@@ -15,11 +13,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.LinearSmoothScroller
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -28,8 +24,6 @@ import com.zephyra.kotlin_app.R
 import com.zephyra.kotlin_app.db.DbManagerSevice
 import com.zephyra.kotlin_app.singleton_objects.carrito_cantidades
 import com.zephyra.kotlin_app.singleton_objects.carrito_manager
-import com.zephyra.kotlin_app.singleton_objects.data_manager
-import com.zephyra.kotlin_app.singleton_objects.productos_manager
 import com.zephyra.kotlin_app.ui.activity_order_confirmada.activity_orden_confirmada
 import kotlinx.coroutines.launch
 import kotlin.properties.Delegates
@@ -55,7 +49,7 @@ class activityCheckout : AppCompatActivity() {
         //Edittext
         val editWsp:EditText = findViewById(R.id.checkout_wsp_num)
         //botones
-        val btn_close:RelativeLayout = findViewById(R.id.checkout_btn_close)
+        val btn_close:RelativeLayout = findViewById(R.id.activity_seccion_btn_close)
         val btn_comprobar_codigo:Button = findViewById(R.id.checkout_btn_comprobar_code)
         val btn_finalizar:RelativeLayout = findViewById(R.id.checkout_btn_finalizar)
         //indicadores

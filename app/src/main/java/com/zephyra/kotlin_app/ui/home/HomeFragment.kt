@@ -1,5 +1,6 @@
 package com.zephyra.kotlin_app.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -18,6 +19,8 @@ import com.zephyra.kotlin_app.singleton_objects.data_manager
 import com.zephyra.kotlin_app.databinding.FragmentHomeBinding
 import com.zephyra.kotlin_app.db.models.productos
 import com.zephyra.kotlin_app.singleton_objects.productos_manager
+import com.zephyra.kotlin_app.singleton_objects.seccion_manager
+import com.zephyra.kotlin_app.ui.activity_seccion_productos.activity_seccion_productos
 
 
 class
@@ -49,25 +52,30 @@ HomeFragment() : Fragment() {
         val nav = findNavController()
         //controles de secciones
         btnCamiseta.setOnClickListener{
-            productos_manager.change_category("camisetas")
-            findNavController().navigate(R.id.action_navigation_home_to_navigation_productos)
+            seccion_manager.current_list = productos_manager.get_new_category("camisetas")
+            val intent = Intent(btnCamiseta.context, activity_seccion_productos::class.java)
+            startActivity(intent)
 
         }
         btnPantalones.setOnClickListener{
-            productos_manager.change_category("pantalones")
-            data_manager.nav_control.navigate(R.id.navigation_productos)
+            seccion_manager.current_list = productos_manager.get_new_category("pantalones")
+            val intent = Intent(btnCamiseta.context, activity_seccion_productos::class.java)
+            startActivity(intent)
         }
         btnHoddies.setOnClickListener{
-            productos_manager.change_category("hoddies")
-            data_manager.nav_control.navigate(R.id.navigation_productos)
+            seccion_manager.current_list = productos_manager.get_new_category("hoddies")
+            val intent = Intent(btnCamiseta.context, activity_seccion_productos::class.java)
+            startActivity(intent)
         }
         btnZapatos.setOnClickListener{
-            productos_manager.change_category("zapatos")
-            data_manager.nav_control.navigate(R.id.navigation_productos)
+            seccion_manager.current_list = productos_manager.get_new_category("zapatos")
+            val intent = Intent(btnCamiseta.context, activity_seccion_productos::class.java)
+            startActivity(intent)
         }
         btnAccesorios.setOnClickListener{
-            productos_manager.change_category("accesorios")
-            data_manager.nav_control.navigate(R.id.navigation_productos)
+            seccion_manager.current_list = productos_manager.get_new_category("accesorios")
+            val intent = Intent(btnCamiseta.context, activity_seccion_productos::class.java)
+            startActivity(intent)
         }
 
         // botton view carousel functions //

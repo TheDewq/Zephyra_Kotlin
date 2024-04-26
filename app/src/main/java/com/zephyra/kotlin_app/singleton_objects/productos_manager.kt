@@ -14,14 +14,14 @@ object productos_manager {
     fun make_toast(mensaje:String, context:Context){
         Toast.makeText(context, mensaje, Toast.LENGTH_SHORT).show()
     }
-    fun change_category(category: String){
+    fun get_new_category(category: String):productos{
         var new_list = productos()
         for(i in data_manager.dbrpt){
             if (i.tipo == category){
                 new_list.add(i)
             }
         }
-        current_list = new_list
+        return new_list
     }
 
 }

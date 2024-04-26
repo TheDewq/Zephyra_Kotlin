@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -44,8 +45,12 @@ class carritoFragment : Fragment() {
         set_total(root)
         val btn_comprar:Button = root.findViewById(R.id.carrito_btn_comprar)
         btn_comprar.setOnClickListener{
-            val intent = Intent(root.context, activityCheckout::class.java)
-            startActivity(intent)
+            if(!carrito_manager.current_list.isEmpty()) {
+                val intent = Intent(root.context, activityCheckout::class.java)
+                startActivity(intent)
+            }else{
+                Toast.makeText(root.context, "No haz agregado ningun producto aun!", Toast.LENGTH_SHORT).show()
+            }
         }
         notificationsViewModel.text.observe(viewLifecycleOwner) {
 
