@@ -6,6 +6,7 @@ class carrito_managerTest {
 
     @org.junit.jupiter.api.Test
     fun getTotal() {
+
     }
 
     @org.junit.jupiter.api.Test
